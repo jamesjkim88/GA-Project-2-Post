@@ -1,5 +1,5 @@
 var router = require('express').Router();
-var studentsCtrl = require('../controllers/students');
+var studentsCtrl = require('../controllers/users');
 
 // GET /students
 router.get('/students', studentsCtrl.index);

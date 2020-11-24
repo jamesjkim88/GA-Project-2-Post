@@ -1,4 +1,4 @@
-const Student = require('../models/student');
+const Student = require('../models/users');
 
 module.exports = {
   index,
@@ -18,7 +18,7 @@ function index(req, res, next) {
     console.log(students, '<----- students');
     if (err) return next(err);
     // Passing search values, name & sortKey, for use in the EJS
-    res.render('students/index', {
+    res.render('users/index', {
       students,
       user: req.user,
       name: req.query.name,
