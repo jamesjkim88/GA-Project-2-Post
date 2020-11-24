@@ -2,8 +2,10 @@ const mongoose = require('mongoose');
 
 // The factSchema is used to embedded docs in as tudent doc.
 // There is no model and no 'facts' collection
-const factSchema = new mongoose.Schema({
-  text: String
+const postSchema = new mongoose.Schema({
+  title: String,
+  post: String,
+  Comments: String
 }, {
   timestamps: true
 });
@@ -11,10 +13,9 @@ const factSchema = new mongoose.Schema({
 const studentSchema = new mongoose.Schema({
   name: String,
   email: String,
-  cohort: String,
   avatar: String,
-  facts: [factSchema],
-  googleId: String
+  googleId: String,
+  post: [postSchema]
 }, {
   timestamps: true
 });
