@@ -10,14 +10,14 @@ const postSchema = new mongoose.Schema({
   timestamps: true
 });
 
-const studentSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   name: String,
   email: String,
   avatar: String,
-  googleId: String,
-  post: [postSchema]
+  post: [postSchema],
+  googleId: String
 }, {
   timestamps: true
 });
 
-module.exports = mongoose.model('Student', studentSchema);
+module.exports = mongoose.model('User', userSchema);

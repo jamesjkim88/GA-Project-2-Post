@@ -1,16 +1,12 @@
 var router = require('express').Router();
-var studentsCtrl = require('../controllers/users');
+var userCtrl = require('../controllers/users');
 
 // GET /students
-router.get('/students', studentsCtrl.index);
+router.get('/:id', userCtrl.userIndex);
 
 // POST /facts
 // We will already have access to the logged in student on
 // the server, therefore do not use: /students/:id/facts
-router.post('/facts', isLoggedIn, studentsCtrl.addFact);
-
-// DELETE /facts/:id
-router.delete('/facts/:id', studentsCtrl.delFact);
 
 // define authorization function
 function isLoggedIn(req, res, next){
