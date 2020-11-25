@@ -6,7 +6,7 @@ module.exports = {
 };
 
 function userIndex(req, res, next) {
-  console.log(req.params.id)
+  console.log(req.user, '<------ req.user')
   // Make the query object to use with Student.find based up
   // the user has submitted the search form or now
   let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
