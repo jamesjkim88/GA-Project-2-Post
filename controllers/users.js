@@ -3,7 +3,8 @@ const User = require('../models/users');
 module.exports = {
   index,
   userIndex,
-  addPost
+  addPost,
+  deletePost
 };
 
 function userIndex(req, res, next) {

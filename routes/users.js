@@ -9,6 +9,8 @@ router.get('/:id', userCtrl.userIndex);
 // the server, therefore do not use: /students/:id/facts
 router.post('/post/', userCtrl.addPost);
 
+router.delete('/post/:id', userCtrl.deletePost);
+
 // define authorization function
 function isLoggedIn(req, res, next){
   if(req.isAuthenticated()){

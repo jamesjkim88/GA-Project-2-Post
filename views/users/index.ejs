@@ -6,16 +6,75 @@
   <title>Document</title>
 </head>
 <body>
-  hello <%= user.name %>
-  <a href="/logout">logout</a>
+  
+  
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="" class="brand-logo left">PostMit</a>
+        <!-- Add login UI here -->
+        <ul class="right">
+          <li>
+            <a href="/auth/google"><i class="material-icons left"></i>Login with Google</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <h1>hello <%= user.name %></h1>
   <form action="/post" method="POST">
     <input type="text" placeholder="Create post" name="post">
     <button type="submit">Post</button>
   </form>
   <div class="posts">
-    <% user.post.forEach(e => { %>
-      <p><%= e.post %></p>
-    <% }) %>
+    
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div id="students" class="col s6 offset-s3">
+        <% if(user.post){ %>
+        <% user.post.forEach(e => { %>
+          <div class="card">
+            <div class="card-content white-text">
+              <% if (user.avatar) { %>
+                <img src="<%= user.avatar %>" alt="" class="circle responsive-img">
+              <% } else { %>
+                <i class="small material-icons">perm_identity</i>
+              <% } %>
+              <div>
+                <span class="card-title">
+                  <h2>Post Title</h2>
+                </span>
+              </div>
+                <p><%= e.post %></p>
+            </div>
+            <form action="/post/<%= e._id %>?_method=DELETE" method="POST" class="secondary-content">
+              <button type="submit" class="btn-small red-text">X</button>
+            </form>
+          </div>
+          <% }) %>
+          <% } %>
+      </div>
+    </div>
   </div>
 </body>
+</html>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>SEI Student Fun Facts</title>
+  <!-- Google Icon Fonts used by Materialize -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Materialize CSS Framework -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="stylesheets/style.css" />
+  <!-- JavaScript for Materialize -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+</body>
+
 </html>
