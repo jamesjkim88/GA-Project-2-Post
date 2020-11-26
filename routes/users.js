@@ -7,6 +7,7 @@ router.get('/:id', userCtrl.userIndex);
 // POST /facts
 // We will already have access to the logged in student on
 // the server, therefore do not use: /students/:id/facts
+router.post('/post/', userCtrl.addPost);
 
 // define authorization function
 function isLoggedIn(req, res, next){

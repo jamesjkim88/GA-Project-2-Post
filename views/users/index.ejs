@@ -8,5 +8,14 @@
 <body>
   hello <%= user.name %>
   <a href="/logout">logout</a>
+  <form action="/post" method="POST">
+    <input type="text" placeholder="Create post" name="post">
+    <button type="submit">Post</button>
+  </form>
+  <div class="posts">
+    <% user.post.forEach(e => { %>
+      <p><%= e.post %></p>
+    <% }) %>
+  </div>
 </body>
 </html>
