@@ -24,7 +24,7 @@
         <!-- Add login UI here -->
         <ul class="right">
           <li>
-            <a href="/auth/google"><i class="material-icons left"></i>Login with Google</a>
+            <a href="/logout"><i class="material-icons left"></i>Logout</a>
           </li>
         </ul>
       </div>
@@ -60,6 +60,9 @@
                 </span>
               </div>
                 <p><%= e.post %></p>
+                <div>
+                  <span>comment</span> <span>like</span> <span><a href="/post/<%= e._id %>/edit">Edit</a></span>
+                </div>
             </div>
           </div>
           <% }) %>

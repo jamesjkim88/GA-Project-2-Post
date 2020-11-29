@@ -4,12 +4,12 @@ module.exports = {
   index,
   userIndex,
   addPost,
-  deletePost
+  deletePost,
+  editView
 };
 
 function userIndex(req, res, next) {
   User.findById(req.params.id, function(err, data){
-    console.log(req.user, "<------user");
     res.render('users/index', { user: req.user });
   })
 }
@@ -37,4 +37,15 @@ function deletePost(req, res, next){
       res.redirect(`/${req.params.id}`);
     })
   })
+}
+
+function editView(req, res){
+  console.log(req.user, "<------user");
+  res.render('users/update', {
+    user: req.user
+  });
+}
+
+function updatePost(req, res, next){
+  //
 }

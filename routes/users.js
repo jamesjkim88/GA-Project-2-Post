@@ -11,6 +11,8 @@ router.post('/post/', userCtrl.addPost);
 
 router.delete('/post/:id', userCtrl.deletePost);
 
+router.get('/post/:id/edit', userCtrl.editView);
+
 // define authorization function
 function isLoggedIn(req, res, next){
   if(req.isAuthenticated()){
