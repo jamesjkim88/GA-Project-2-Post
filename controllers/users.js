@@ -30,7 +30,7 @@ function addPost(req, res, next){
   req.user.post.push(req.body);
   console.log(req.user.post, "<===== req.user.post");
   req.user.save(function(err){
-    res.redirect(`/${req.user._id}`);
+    res.redirect(`/`);
   });
 };
 
@@ -38,7 +38,19 @@ function deletePost(req, res, next){
   User.findOne({'post._id' : req.params.id}, function(err, user){
     user.post.id(req.params.id).remove();
     user.save(function(err){
-      res.redirect(`/${req.params.id}`);
+      res.redirect(`/`);
+    })
+  })
+}
+
+function editPost(req, res){
+  console.log(req.body, '<---- req.body from editPost');
+  console.log(req.params.id, '<----- req.params.id from editPost');
+  User.findOne({'post._id' : req.params.id}, function(err, user){
+    console.log(user, '<---- user from editPost function');
+    user.post = req.body.post;
+    user.save(function(err){
+      res.redirect(`/`)
     })
   })
 }
@@ -51,13 +63,3 @@ function editView(req, res){
   });
 };
 
-function editPost(req, res){
-  console.log(req.body, '<---- req.body from editPost');
-  User.findOne({'post._id' : req.params.id}, function(err, user){
-    console.log(user, '<---- user from editPost function');
-    user.post = req.body.post;
-    user.save(function(err){
-      res.redirect(`/${req.user._id}`)
-    })
-  })
-}

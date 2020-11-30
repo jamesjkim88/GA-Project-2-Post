@@ -7,7 +7,7 @@
 </head>
 <body>
   <h1>update</h1>
-  <form action="/post/<%= postId %>" method="POST">
+  <form action="/post/<%= postId %>?_method=PUT" method="POST">
     <input type="text" name="post">
     <button type="submit">Edit</button>
   </form>

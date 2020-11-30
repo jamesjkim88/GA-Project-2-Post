@@ -34,7 +34,7 @@
   <div class="container">
     <div class="row">
       <% if(user1) { %>
-        <h1>hello <%= user.name %></h1>
+        <h1>Hello <%= user1.name %></h1>
         <form action="/post" method="POST">
           <input type="text" placeholder="Create post" name="post">
           <button type="submit">Post</button>
@@ -45,7 +45,7 @@
           <% e.post.forEach(function(elm){ %>
             <div class="card">
               <% if(user1) { %>
-              <form action="/post/<%= e._id %>?_method=DELETE" method="POST" class="secondary-content">
+              <form action="/post/<%= elm._id %>?_method=DELETE" method="POST" class="secondary-content">
                 <button type="submit" class="btn-small red-text">X</button>
               </form>
               <% } %>
@@ -63,7 +63,7 @@
                 <p class="post"><%= elm.post %></p>
                 <% if(user1) { %>
                 <div>
-                  <span>comment</span> <span>like</span> <span><a href="/post/<%= e._id %>/edit">Edit</a></span>
+                  <span>comment</span> <span>like</span> <span><a href="/post/<%= elm._id %>/edit">Edit</a></span>
                 </div>
                 <% } %>
               </div>
