@@ -48,7 +48,9 @@ function editPost(req, res){
   console.log(req.params.id, '<----- req.params.id from editPost');
   User.findOne({'post._id' : req.params.id}, function(err, user){
     console.log(user, '<---- user from editPost function');
-    user.post = req.body.post;
+    let post = user.post.id(req.params.id);
+    console.log(user.post.id(req.params.id), '<----- user.post from editPost');
+    post.post = req.body.post;
     user.save(function(err){
       res.redirect(`/`)
     })
