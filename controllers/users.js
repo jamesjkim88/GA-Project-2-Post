@@ -5,7 +5,8 @@ module.exports = {
   userIndex,
   addPost,
   deletePost,
-  editView
+  editView,
+  editPost
 };
 
 function userIndex(req, res, next) {
@@ -15,9 +16,12 @@ function userIndex(req, res, next) {
 }
 
 function index(req,res){
-  User.find({}, function(err, user){
+  let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
+  User.find(modelQuery, function(err, user){
+    console.log(user, "<---- user from index");
     res.render('index', {
-      user
+      user,
+      user1: req.user
     })
   })
 }
@@ -40,12 +44,20 @@ function deletePost(req, res, next){
 }
 
 function editView(req, res){
-  console.log(req.user, "<------user");
+  console.log(req.user, "<---- req.user from editView");
   res.render('users/update', {
-    user: req.user
+    user: req.user,
+    postId: req.params.id
   });
-}
+};
 
-function updatePost(req, res, next){
-  //
+function editPost(req, res){
+  console.log(req.body, '<---- req.body from editPost');
+  User.findOne({'post._id' : req.params.id}, function(err, user){
+    console.log(user, '<---- user from editPost function');
+    user.post = req.body.post;
+    user.save(function(err){
+      res.redirect(`/${req.user._id}`)
+    })
+  })
 }

@@ -4,14 +4,13 @@ var userCtrl = require('../controllers/users');
 // GET /students
 router.get('/:id', userCtrl.userIndex);
 
-// POST /facts
-// We will already have access to the logged in student on
-// the server, therefore do not use: /students/:id/facts
 router.post('/post/', userCtrl.addPost);
 
-router.delete('/post/:id', userCtrl.deletePost);
-
 router.get('/post/:id/edit', userCtrl.editView);
+
+router.put('/post/:id', userCtrl.editPost);
+
+router.delete('/post/:id', userCtrl.deletePost);
 
 // define authorization function
 function isLoggedIn(req, res, next){
