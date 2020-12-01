@@ -14,9 +14,10 @@
    4. Once you are connected to local server and db, sign in with your Google Account via Google OAuth
 
 ## Next steps...
-  1. Add in feature functionalities such as..
+  1. Add in functionalities such as..
       - Filtering posts
       - Able to view comments and posts globally
-  2. Use blog post API's to fill in posts.
+      - Users to edit their own posts
+  2. Refactor design structures/models/schema
 
   [Trello Board](https://trello.com/b/wYut7ORE/seir-1019-project-2) for project planning.
