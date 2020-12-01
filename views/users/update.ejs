@@ -56,9 +56,6 @@
                 <i class="small material-icons">perm_identity</i>
               <% } %>
               <div>
-                <span class="card-title">
-                  <h2>Post Title</h2>
-                </span>
               <br>
               <form action="/post/<%= postId %>?_method=PUT" method="POST">
                 <textarea name="post" id="" cols="30" rows="10"><%= post.post %></textarea>

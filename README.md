@@ -1,8 +1,8 @@
 # GA Project 2 - Post project - PostMit
 
-<img src="https://i.imgur.com/M1N5UoI.png" alt="screen shot 1" />
-<img src="https://i.imgur.com/Z9KbG4i.png" alt="screen shot 2" />
-<img src="https://i.imgur.com/jFl5uP0.png" alt="screen shot 3" />
+<img src="https://i.imgur.com/NxD8ZYu.png" alt="screen shot 1" />
+<img src="https://i.imgur.com/CVhkqXb.png" alt="screen shot 2" />
+<img src="https://i.imgur.com/69GfisJ.png" alt="screen shot 3" />
 
 ## Technologies Used
  - MEN Stack

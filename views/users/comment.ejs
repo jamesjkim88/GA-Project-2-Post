@@ -45,11 +45,6 @@
               <% } else { %>
                 <i class="small material-icons">perm_identity</i>
               <% } %>
-              <div>
-                <span class="card-title">
-                  <h2>Post Title</h2>
-                </span>
-              </div>
               <p><%= post.post %></p>
               <br>
               <form action="/post/<%= post._id %>/comment" method="POST">

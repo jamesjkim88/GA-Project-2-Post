@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -60,11 +61,6 @@
       <div class="col s6 offset-s3">
         <div class="card">
           <div class="card-content white-text">
-            <div>
-              <span class="card-title">
-                <h2>Comments</h2>
-              </span>
-            </div>
             <p><%= post.comment.length %> <%= post.comment.length > 1 ? 'comments' : 'comment' %></p>
             <% user.post.forEach(e => { %>
               <% e.comment.forEach(elm => { %>

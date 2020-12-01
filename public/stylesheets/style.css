@@ -36,8 +36,8 @@ input{
 }
 
 .post{
-  font-size: 18px;
-  line-height: 26px;
+  font-size: 24px;
+  line-height: 36px;
   margin-bottom: 12px !important; 
 }
 
@@ -53,6 +53,10 @@ input{
   background-color: transparent !important;
   border: 1px solid #fff;
   border-radius: 15px !important;
+}
+
+.card-content img{
+  margin-bottom: 5px;
 }
 
 .card-title img{
