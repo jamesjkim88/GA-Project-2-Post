@@ -1,41 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Icon Fonts used by Materialize -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Materialize CSS Framework -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="../../stylesheets/style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <!-- JavaScript for Materialize -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <title>Document</title>
-  </head>
+<head>
+  <title>SEI Student Fun Facts</title>
+  <!-- Google Icon Fonts used by Materialize -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Materialize CSS Framework -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="../../stylesheets/style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <!-- JavaScript for Materialize -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
 <body>
-  <!-- <h1>update</h1>
-  <form action="/post/<%= postId %>?_method=PUT" method="POST">
-    <input type="text" name="post">
-    <button type="submit">Edit</button>
-  </form> -->
-
-
-
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
         <a href="/" class="brand-logo left">PostMit</a>
         <!-- Add login UI here -->
         <ul class="right">
-          <% if(user) { %>
+          <% if(user1) { %>
           <li>
-            <a href="/"><img valign="middle" class="circle" width="25" src="<%= user.avatar %>" alt="User"></a>
+            <a href="/"><img valign="middle" class="circle" width="25" src="<%= user1.avatar %>" alt="User"></a>
           </li>
           <% } %>
           <li>
-            <% if(user) { %>
+            <% if(user1) { %>
               <a href="/logout"><i class="material-icons left"></i>Logout with Google</a>
             <% }else { %>
               <a href="/auth/google"><i class="material-icons left"></i>Login with Google</a>
@@ -59,9 +49,11 @@
                 <span class="card-title">
                   <h2>Post Title</h2>
                 </span>
+              </div>
+              <p><%= post.post %></p>
               <br>
-              <form action="/post/<%= postId %>?_method=PUT" method="POST">
-                <textarea name="post" id="" cols="30" rows="10"><%= post.post %></textarea>
+              <form action="/post/<%= post._id %>/comment" method="POST">
+                <textarea name="content" id="" cols="30" rows="10" placeholder="Leave a comment"></textarea>
                 <button type="submit" class="btn-small red-text">Submit</button>
               </form>
             </div>

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEI Student Fun Facts</title>
     <!-- Google Icon Fonts used by Materialize -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Materialize CSS Framework -->
@@ -12,17 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <!-- JavaScript for Materialize -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <title>Document</title>
   </head>
 <body>
-  <!-- <h1>update</h1>
-  <form action="/post/<%= postId %>?_method=PUT" method="POST">
-    <input type="text" name="post">
-    <button type="submit">Edit</button>
-  </form> -->
-
-
-
+  
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
@@ -31,7 +22,7 @@
         <ul class="right">
           <% if(user) { %>
           <li>
-            <a href="/"><img valign="middle" class="circle" width="25" src="<%= user.avatar %>" alt="User"></a>
+            <a href="/user/<%= user._id %>"><img valign="middle" class="circle" width="25" src="<%= user.avatar %>" alt="User"></a>
           </li>
           <% } %>
           <li>
@@ -59,13 +50,29 @@
                 <span class="card-title">
                   <h2>Post Title</h2>
                 </span>
-              <br>
-              <form action="/post/<%= postId %>?_method=PUT" method="POST">
-                <textarea name="post" id="" cols="30" rows="10"><%= post.post %></textarea>
-                <button type="submit" class="btn-small red-text">Submit</button>
-              </form>
+              </div>
+              <p><%= post.post %></p>
             </div>
           </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s6 offset-s3">
+        <div class="card">
+          <div class="card-content white-text">
+            <div>
+              <span class="card-title">
+                <h2>Comments</h2>
+              </span>
+            </div>
+            <p><%= post.comment.length %> <%= post.comment.length > 1 ? 'comments' : 'comment' %></p>
+            <% user.post.forEach(e => { %>
+              <% e.comment.forEach(elm => { %>
+                <p><img valign="bottom" src="<%= user.avatar %>" width="25" alt="" class="circle"> <%= elm.content %></p>
+              <% }) %>
+            <% }) %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

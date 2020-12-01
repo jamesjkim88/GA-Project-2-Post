@@ -4,6 +4,11 @@ body {
   color: #fff;
 }
 
+h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
+}
+
 a {
   color: #00B7FF;
 }
@@ -17,14 +22,37 @@ input{
   background-color: rgb(179 167 167 / 44%);
 }
 
+.brand-logo{
+  padding-left: 25px !important;
+}
+
+.right{
+  padding-right: 15px;
+}
+
+.card-title h2{
+  font-size: 42px;
+  line-height: 53px;
+}
+
+.post{
+  font-size: 18px;
+  line-height: 26px;
+  margin-bottom: 12px !important; 
+}
+
+.post-links .pd{
+  padding: 0 15px;
+}
+
+.user-img{
+  width: 75px;
+}
+
 .card {
   background-color: transparent !important;
   border: 1px solid #fff;
-  border-radius: 15px;
-}
-
-.card-content{
-  padding: 15px !important;
+  border-radius: 15px !important;
 }
 
 .card-title img{
@@ -33,4 +61,31 @@ input{
 
 .nav-wrapper{
   background-color: rgb(37 33 33);
+}
+
+textarea{
+  color: #fff;
+  outline: none;
+  height: 100px;
+  border-radius: 10px;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+
+button{
+  background-color: transparent;
+  color: white;
+  outline: none;
+  border: 1px solid white;
+}
+
+.delete-btn{
+  margin-right: 8px;
+  margin-top: 5px;
+  border: none;
+}
+
+.post-btn{
+  padding: 10px 30px;;
+  border-radius: 10px;
 }

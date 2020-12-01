@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Materialize CSS Framework -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="stylesheets/style.css" />
+  <link rel="stylesheet" href="../stylesheets/style.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <!-- JavaScript for Materialize -->
@@ -20,9 +20,12 @@
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
-        <a href="" class="brand-logo left">PostMit</a>
+        <a href="/" class="brand-logo left">PostMit</a>
         <!-- Add login UI here -->
         <ul class="right">
+          <li>
+            <a href="/"><i class="material-icons left"></i>Home</a>
+          </li>
           <li>
             <a href="/logout"><i class="material-icons left"></i>Logout</a>
           </li>
@@ -30,24 +33,24 @@
       </div>
     </nav>
   </div>
-  <h1>hello <%= user.name %></h1>
-  <form action="/post" method="POST">
-    <input type="text" placeholder="Create post" name="post">
-    <button type="submit">Post</button>
-  </form>
 
   <div class="container">
+    <h1>hello <%= user.name %></h1>
+    <form action="/post" method="POST">
+      <input type="text" placeholder="Create post" name="post">
+      <button type="submit" class="post-btn">Post</button>
+    </form>
     <div class="row">
       <div id="students" class="col s6 offset-s3">
         <% if(user.post){ %>
         <% user.post.forEach(e => { %>
           <div class="card">
             <form action="/post/<%= e._id %>?_method=DELETE" method="POST" class="secondary-content">
-              <button type="submit" class="btn-small red-text">X</button>
+              <button type="submit" class="delete-btn red-text">X</button>
             </form>
             <div class="card-content white-text">
               <% if (user.avatar) { %>
-                <img src="<%= user.avatar %>" alt="" class="circle responsive-img">
+                <img src="<%= user.avatar %>" alt="" class="circle responsive-img user-img">
               <% } else { %>
                 <i class="small material-icons">perm_identity</i>
               <% } %>
@@ -56,9 +59,9 @@
                   <h2>Post Title</h2>
                 </span>
               </div>
-                <p><%= e.post %></p>
-                <div>
-                  <span>comment</span> <span>like</span> <span><a href="/post/<%= e._id %>/edit">Edit</a></span>
+                <p class="post"><%= e.post %></p>
+                <div class="post-links">
+                  <span><a href="/post/<%= e._id %>">View</a></span><span class="pd"><a href="/post/<%= e._id %>/comment">Comment</a></span><span><a href="/post/<%= e._id %>/edit">Edit</a></span>
                 </div>
             </div>
           </div>

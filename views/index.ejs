@@ -13,45 +13,44 @@
   <!-- JavaScript for Materialize -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
-<body>
-  <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <a href="" class="brand-logo left">PostMit</a>
-        <!-- Add login UI here -->
-        <ul class="right">
-          <li>
-            <% if(user1) { %>
-              <a href="/logout"><i class="material-icons left"></i>Logout with Google</a>
-            <% }else { %>
-              <a href="/auth/google"><i class="material-icons left"></i>Login with Google</a>
-            <% } %>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
+<body><div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo left">PostMit</a>
+      <!-- Add login UI here -->
+      <ul class="right">
+        <% if(user1) { %>
+        <li>
+          <a href="/user/<%= user1._id %>"><img valign="middle" class="circle" width="25" src="<%= user1.avatar %>" alt="User"></a>
+        </li>
+        <% } %>
+        <li>
+          <% if(user1) { %>
+            <a href="/logout"><i class="material-icons left"></i>Logout with Google</a>
+          <% }else { %>
+            <a href="/auth/google"><i class="material-icons left"></i>Login with Google</a>
+          <% } %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
   <div class="container">
     <div class="row">
       <% if(user1) { %>
         <h1>Hello <%= user1.name %></h1>
         <form action="/post" method="POST">
           <input type="text" placeholder="Create post" name="post">
-          <button type="submit">Post</button>
+          <button type="submit" class="post-btn">Post</button>
         </form>
       <% } %>
       <div id="students" class="col s6 offset-s3">
         <% user.forEach(function(e, i) { %>
           <% e.post.forEach(function(elm){ %>
             <div class="card">
-              <% if(user1) { %>
-              <form action="/post/<%= elm._id %>?_method=DELETE" method="POST" class="secondary-content">
-                <button type="submit" class="btn-small red-text">X</button>
-              </form>
-              <% } %>
               <div class="card-content white-text">
                 <% if (e.avatar) { %>
-                  <img src="<%= e.avatar %>" alt="" class="circle responsive-img">
+                  <img src="<%= e.avatar %>" alt="" class="circle responsive-img user-img">
                 <% } else { %>
                   <i class="small material-icons">perm_identity</i>
                 <% } %>
@@ -62,8 +61,8 @@
                 </div>
                 <p class="post"><%= elm.post %></p>
                 <% if(user1) { %>
-                <div>
-                  <span>comment</span> <span>like</span> <span><a href="/post/<%= elm._id %>/edit">Edit</a></span>
+                <div class="post-links">
+                  <span><a href="/post/<%= elm._id %>">View</a></span><span class="pd"><a href="/post/<%= elm._id %>/comment">Comment</a></span><span><a href="/post/<%= elm._id %>/edit">Edit</a></span>
                 </div>
                 <% } %>
               </div>

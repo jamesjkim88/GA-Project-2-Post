@@ -1,8 +1,13 @@
 var router = require('express').Router();
 var userCtrl = require('../controllers/users');
 
-// GET /students
-router.get('/:id', userCtrl.userIndex);
+router.get('/user/:id', userCtrl.userIndex);
+
+router.get('/post/:id/comment', userCtrl.commentView);
+
+router.get('/post/:id', userCtrl.postView)
+
+router.post('/post/:id/comment', userCtrl.addComment)
 
 router.post('/post/', userCtrl.addPost);
 
